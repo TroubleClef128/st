@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "mono:pixelsize=12:antialias=true:autohint=true";
-static char *font2[] = { "NotoColorEmoji:pixelsize=10:antialias=true:autohint=true" };
+static char *font = { "SourceCodePro:style=Mono:pixelsize=14:antialias=true:autohint=true" };
+static char *font2[] = { "LiterationMono NF:pixelsize=20:antialias=true:autohint=true", "Noto Sans Mono CJK JP:pixelsize=14:antialias=true:autohint=true" };
 static int borderpx = 2;
 
 /*
@@ -107,13 +107,15 @@ char *termname = "st-256color";
 unsigned int tabspaces = 8;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 0.6;
 float alphaOffset = 0.0;
 float alphaUnfocus;
 
+
 /* Terminal colors (16 first used in escape sequence) */
+/* Luke Smith default colorscheme
 static const char *colorname[] = {
-	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+	"#282828",  hard contrast: #1d2021 / soft contrast: #32302f 
 	"#cc241d",
 	"#98971a",
 	"#d79921",
@@ -121,6 +123,7 @@ static const char *colorname[] = {
 	"#b16286",
 	"#689d6a",
 	"#a89984",
+
 	"#928374",
 	"#fb4934",
 	"#b8bb26",
@@ -130,18 +133,50 @@ static const char *colorname[] = {
 	"#8ec07c",
 	"#ebdbb2",
 	[255] = 0,
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#add8e6", /* 256 -> cursor */
-	"#555555", /* 257 -> rev cursor*/
-	"#282828", /* 258 -> bg */
-	"#ebdbb2", /* 259 -> fg */
+	more colors can be added after 255 to use with DefaultXX 
+	"#add8e6",  256 -> cursor 
+	"#555555",  257 -> rev cursor
+	"#282828",  258 -> bg 
+	"#ebdbb2",  259 -> fg 
 };
-
+*/
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
+
+
+/*my custom terminal color scheme*/
+static const char *colorname[] = {
+	"#10051a", /*black*/
+	"#e13169", /*red*/
+	"#14ff85", /*green*/
+	"#f8d33d", /*yellow*/
+	"#3951ca", /*blue*/
+	"#833cdc", /*purple*/
+	"#20d6ec", /*cyan*/
+	"#909aa4", /*dark white*/
+
+	"#38363a", /*grey*/
+	"#de7a8d", /*light red*/
+	"#79d99d", /*light green*/
+	"#dfda77", /*light yellow*/
+	"#8cb2d4", /*light blue*/
+	"#b59cd2", /*light purple*/
+	"#96d9de", /*light cyan*/
+	"#d9e2df", /*white*/
+	
+	[255] = 0,
+
+	"#add8e6", /* 256 -> cursor */
+	"#555555", /* 257 -> rev cursor*/
+	"#282828", /* 258 -> bg */
+	"#d4eddc", /* 259 -> fg */
+};
+
+
+
 unsigned int defaultfg = 259;
 unsigned int defaultbg = 258;
 unsigned int defaultcs = 256;
@@ -555,4 +590,3 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~";
-
